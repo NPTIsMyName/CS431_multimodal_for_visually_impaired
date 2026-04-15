@@ -1,0 +1,18 @@
+numpy
+torch
+torchaudio
+torchvision
+transformers==4.56.2
+accelerate
+librosa
+soundfile
+faster-whisper
+ctranslate2
+vieneu --extra-index-url https://pnnbao97.github.io/llama-cpp-python-v0.3.16/cpu/
+sounddevice
+qwen-vl-utils
+sentencepiece
+einops
+timm
+opencv-python
+llama-cpp-python
