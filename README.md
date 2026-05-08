@@ -79,8 +79,8 @@ models/
 
 Ví dụ:
 
-* `Vintern-1B-v3_5-Finetuned-Q6_K.gguf`
-* `mmproj-Vintern-1B-v3_5-Finetuned.gguf`
+* `mmproj-Qwen3-VL-2B-Finetuned-BF16.gguf`
+* `Qwen3-VL-2B-Finetuned-BF16-Q4_K_M.gguf`
 
 ---
 
@@ -91,7 +91,11 @@ Ví dụ:
 Dùng để test luồng STT → VLM → TTS:
 
 ```bash
-python vintern_pipeline.py
+python qwen_pipeline.py
+```
+hoặc dùng bản gguf
+```bash
+python qwen_pipeline_gguf.py
 ```
 
 Hệ thống sẽ:
@@ -106,7 +110,7 @@ Hệ thống sẽ:
 ### 2. Chạy Web App (Khuyên dùng)
 
 ```bash
-python app_vintern.py
+python app_qwen_gguf.py
 ```
 
 Truy cập:
@@ -135,9 +139,9 @@ http://127.0.0.1:7860
   * Có NVIDIA GPU → dùng CUDA (float16)
   * Không có → fallback CPU (int8)
 
-* Nâng cấp GPU cho VLM (tuỳ chọn):
+* Đổi sang chạy GPU cho VLM (tuỳ chọn):
 
-  * Mở file `vintern_pipeline.py`
+  * Mở file `qwen_pipeline_gguf.py`
   * Tìm:
 
     ```

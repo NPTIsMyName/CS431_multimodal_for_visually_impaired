@@ -14,7 +14,7 @@ print(f"[*] Đã ép PyTorch sử dụng {threads} luồng CPU.")
 # Import các module đã tối ưu
 from fastwhis import FastSpeechToText
 from tts_vieneu import FastTextToSpeech
-from vintern_pipeline_finetuned import VisionLanguageModel
+from qwen_pipeline_gguf import VisionLanguageModel
 
 print("=" * 60)
 print("ĐANG TẢI CÁC MÔ HÌNH VÀO BỘ NHỚ (RAM)...")
@@ -23,7 +23,6 @@ print("=" * 60)
 stt_module = FastSpeechToText(model_size="base")
 vlm_module = VisionLanguageModel()
 tts_module = FastTextToSpeech(voice_index=0)
-
 
 def warm_up_models():
     """
@@ -55,7 +54,7 @@ warm_up_models()
 
 def process_multimodal(image_path, audio_path):
     if not image_path or not audio_path:
-        return "⚠️ Vui lòng cung cấp đầy đủ cả hình ảnh và âm thanh!", None
+        return "Vui lòng cung cấp đầy đủ cả hình ảnh và âm thanh!", None
 
     start_time = time.time()
 
@@ -65,7 +64,7 @@ def process_multimodal(image_path, audio_path):
     stt_latency = time.time() - stt_start_time
 
     if not question:
-        return "❌ Không nghe rõ câu hỏi. Vui lòng thu âm lại.", None
+        return "Không nghe rõ câu hỏi. Vui lòng thu âm lại.", None
 
     # 2. VLM
     vlm_start_time = time.time()
@@ -93,10 +92,10 @@ def process_multimodal(image_path, audio_path):
     total_latency = time.time() - start_time
 
     final_text = (
-        f"🗣️ **Người dùng hỏi:** {question}\n\n"
-        f"🤖 **Trợ lý trả lời:** {answer}\n\n"
-        f"⏱️ *Tổng thời gian:* {total_latency:.2f}s\n"
-        f"   *(ASR: {stt_latency:.2f}s | VLM: {vlm_latency:.2f}s | TTS: {tts_latency:.2f}s)*"
+        f"**Người dùng hỏi:** {question}\n\n"
+        f"**Trợ lý trả lời:** {answer}\n\n"
+        f"*Tổng thời gian:* {total_latency:.2f}s\n"
+        f"  *(ASR: {stt_latency:.2f}s | VLM: {vlm_latency:.2f}s | TTS: {tts_latency:.2f}s)*"
     )
 
     return final_text, output_audio_path
@@ -106,7 +105,7 @@ def process_multimodal(image_path, audio_path):
 with gr.Blocks(theme=gr.themes.Soft()) as demo:
     gr.Markdown(
         """
-        # 🕶️ VibeBlind Assistant
+        # VibeBlind Assistant
         **Trợ lý AI đa phương thức hỗ trợ người khiếm thị (Offline CPU)**
         """
     )
@@ -116,7 +115,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
             gr.Markdown("### 1. Input")
             img_in = gr.Image(type="filepath", label="Ảnh")
             audio_in = gr.Audio(type="filepath", sources=["microphone", "upload"], label="Audio")
-            btn_submit = gr.Button("🔍 Phân tích", variant="primary")
+            btn_submit = gr.Button("Phân tích", variant="primary")
 
         with gr.Column():
             gr.Markdown("### 2. Output")
@@ -132,4 +131,4 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
 
 if __name__ == "__main__":
     print("\n[+] Web đang chạy...")
-    demo.launch(server_name="0.0.0.0", server_port=7868, inbrowser=True)
+    demo.launch(server_name="0.0.0.0", server_port=7860, inbrowser=True)
