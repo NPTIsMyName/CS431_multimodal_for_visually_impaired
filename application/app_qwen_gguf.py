@@ -13,7 +13,7 @@ print(f"[*] Đã ép PyTorch sử dụng {threads} luồng CPU.")
 
 # Import các module đã tối ưu
 from fastwhis import FastSpeechToText
-from tts_vieneu import FastTextToSpeech
+from application.tts_vieneu import FastTextToSpeech
 from qwen_pipeline_gguf import VisionLanguageModel
 
 print("=" * 60)

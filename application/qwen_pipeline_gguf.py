@@ -6,7 +6,7 @@ from PIL import Image
 import io
 
 from fastwhis import FastSpeechToText
-from tts_vieneu import FastTextToSpeech
+from application.tts_vieneu import FastTextToSpeech
 
 from llama_cpp import Llama
 from llama_cpp.llama_chat_format import Llava15ChatHandler
