@@ -6,7 +6,7 @@ Hệ thống trợ lý ảo đa phương thức hỗ trợ người khiếm th�
 
 ---
 
-## 📂 Cấu trúc thư mục (Project Structure)
+## Cấu trúc thư mục (Project Structure)
 
 ```text
 CS431_multimodal_for_visually_impaired/
@@ -19,7 +19,7 @@ CS431_multimodal_for_visually_impaired/
 
 ---
 
-## 🚀 Hướng dẫn Finetuning (Tính năng mới)
+## Hướng dẫn Finetuning (Tính năng mới)
 
 Dự án hiện đã được bổ sung các script để finetune mô hình nhằm tăng cường độ chính xác cho các tác vụ cụ thể.
 
@@ -36,7 +36,7 @@ Dự án hiện đã được bổ sung các script để finetune mô hình nh�
 
 ---
 
-## 💻 Hướng dẫn Cài đặt & Sử dụng Ứng dụng
+## Hướng dẫn Cài đặt & Sử dụng Ứng dụng
 
 Dưới đây là hướng dẫn cài đặt và chạy hệ thống pipeline suy luận (Inference) từ thư mục `application/`.
 
