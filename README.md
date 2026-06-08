@@ -1,5 +1,8 @@
 # Hệ Thống Trợ Lý Đa Phương Thức Cho Người Khiếm Thị (Multimodal Assistant)
 
+## Video demo
+https://drive.google.com/file/d/1oXNv2oao5bxq3Pfw52WVLcV_b_vQSLIv/view?usp=sharing
+
 > Kiến trúc: **Chạy Offline** • **Tối ưu CPU** • **Hỗ trợ Finetuning**
 
 Hệ thống trợ lý ảo đa phương thức hỗ trợ người khiếm thị nhận diện môi trường xung quanh thông qua giọng nói (STT), phân tích hình ảnh (VLM) và phản hồi bằng giọng nói (TTS). Dự án hiện đã được tái cấu trúc, hỗ trợ quá trình finetune mô hình cũng như chạy ứng dụng suy luận (inference) tối ưu cho CPU.
@@ -91,7 +94,7 @@ python qwen_pipeline_gguf.py
 
 ---
 
-## ⚠️ Chú ý (Disclaimer)
+## Chú ý (Disclaimer)
 * **Ưu tiên CPU:** Hệ thống suy luận sử dụng GGUF và int8, tận dụng toàn bộ lõi CPU. Lỗi decode ảnh (stb_image) đã được xử lý bằng PIL.
 * **Offline hoàn toàn:** Chỉ cần Internet khi tải model lần đầu, sau đó hệ thống chạy 100% offline.
 * **Tự động nhận diện GPU (STT):** Có NVIDIA GPU → dùng CUDA (float16) | Không có → fallback CPU (int8).
